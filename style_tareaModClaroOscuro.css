@@ -1,0 +1,164 @@
+/* 1. Configuración general */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Se ocultan visualmente, pero siguen funcionando con el teclado. */
+.radio-tema,
+.tarjetas input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* 2. Paleta de colores mediante variables CSS */
+.pagina {
+    --fondo: #f2f6fc;
+    --texto: #172238;
+    --tarjeta: #ffffff;
+    --borde: #ced9e8;
+    --color-seleccion: #2563eb;
+    --fondo-imagen: #e8f0fb;
+    --sombra: rgba(20, 40, 80, 0.12);
+
+    min-height: 100vh;
+    padding: 36px 24px;
+    background-color: var(--fondo);
+    color: var(--texto);
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* 3. Modo oscuro activado por el input radio */
+#oscuro:checked ~ .pagina {
+    --fondo: #0e1729;
+    --texto: #f1f5f9;
+    --tarjeta: #1c2a40;
+    --borde: #42536c;
+    --color-seleccion: #60a5fa;
+    --fondo-imagen: #2b3d58;
+    --sombra: rgba(0, 0, 0, 0.35);
+}
+
+/* 4. Encabezado y selector de tema */
+.encabezado {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.encabezado h1 {
+    margin: 0 0 8px;
+}
+
+.encabezado p {
+    margin: 0;
+}
+
+.controles-tema {
+    display: flex;
+    gap: 10px;
+}
+
+.controles-tema label {
+    padding: 11px 18px;
+    border: 2px solid var(--borde);
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#claro:checked ~ .pagina label[for="claro"],
+#oscuro:checked ~ .pagina label[for="oscuro"] {
+    background-color: var(--color-seleccion);
+    border-color: var(--color-seleccion);
+    color: #ffffff;
+}
+
+#claro:focus-visible ~ .pagina label[for="claro"],
+#oscuro:focus-visible ~ .pagina label[for="oscuro"] {
+    outline: 3px solid var(--color-seleccion);
+    outline-offset: 4px;
+}
+
+
+.catalogo {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+
+.tarjetas label {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 320px;
+    padding: 18px;
+    background-color: var(--tarjeta);
+    border: 3px solid var(--borde);
+    border-radius: 16px;
+    box-shadow: 0 5px 14px var(--sombra);
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease,
+                background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjetas img {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: var(--fondo-imagen);
+    transition: background-color 0.3s ease;
+}
+
+.tarjetas label div {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tarjetas label span {
+    margin-top: auto;
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--color-seleccion);
+}
+
+
+.tarjetas input[type="radio"]:checked + label {
+    border-color: var(--color-seleccion);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 22px var(--sombra);
+}
+
+.tarjetas input[type="radio"]:focus-visible + label {
+    outline: 3px solid var(--color-seleccion);
+    outline-offset: 4px;
+}
+
+.tarjetas label:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    .pagina {
+        padding: 24px 16px;
+    }
+
+    .controles-tema {
+        width: 100%;
+    }
+}

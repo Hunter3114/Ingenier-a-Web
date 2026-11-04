@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 3 - Catálogo claro y oscuro</title>
+    <link rel="stylesheet" href="style_tareaModClaroOscuro.css">
+</head>
+<body>
+    <!-- Los radio de tema van antes de .pagina para cambiar el estilo con CSS. -->
+    <input type="radio" name="tema" id="claro" class="radio-tema" checked>
+    <input type="radio" name="tema" id="oscuro" class="radio-tema">
+
+    <div class="pagina">
+        <header class="encabezado">
+            <div>
+                <h1>Catálogo de tecnología</h1>
+                <p>Selecciona un producto y elige el modo de visualización.</p>
+            </div>
+
+            <div class="controles-tema" role="group" aria-label="Modo de visualización">
+                <label for="claro">☀ Claro</label>
+                <label for="oscuro">☾ Oscuro</label>
+            </div>
+        </header>
+
+        <main class="catalogo">
+            <div class="tarjetas">
+                <input type="radio" name="producto" id="producto1">
+                <label for="producto1">
+                    <img src="imagenes/teclado.svg" alt="Teclado inalámbrico">
+                    <div>TECLADO INALÁMBRICO</div>
+                    <span>$800</span>
+                </label>
+            </div>
+
+            <div class="tarjetas">
+                <input type="radio" name="producto" id="producto2">
+                <label for="producto2">
+                    <img src="imagenes/mouse.svg" alt="Mouse inalámbrico">
+                    <div>MOUSE LOGITECH</div>
+                    <span>$1,200</span>
+                </label>
+            </div>
+
+            <div class="tarjetas">
+                <input type="radio" name="producto" id="producto3">
+                <label for="producto3">
+                    <img src="imagenes/monitor.svg" alt="Monitor de computadora">
+                    <div>MONITOR LED</div>
+                    <span>$3,500</span>
+                </label>
+            </div>
+
+            <div class="tarjetas">
+                <input type="radio" name="producto" id="producto4">
+                <label for="producto4">
+                    <img src="imagenes/audifonos.svg" alt="Audífonos de diadema">
+                    <div>AUDÍFONOS BLUETOOTH</div>
+                    <span>$950</span>
+                </label>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
